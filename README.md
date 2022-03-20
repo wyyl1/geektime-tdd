@@ -6,4 +6,4 @@
 
 ## 笔记
 
-1. [01｜TDD演示（1）：任务分解法与整体工作流程](https://www.wyyl1.com/post/19/01/)
+- [01｜TDD演示（1）：任务分解法与整体工作流程](https://www.wyyl1.com/post/19/01/)
