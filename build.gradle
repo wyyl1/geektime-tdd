@@ -1,0 +1,21 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.wyyl1'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
