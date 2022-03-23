@@ -17,18 +17,24 @@ public class Args {
                     .toArray();
 
             return (T) constructor.newInstance(values);
+        } catch (IllegalOptionException e) {
+            throw  e;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException();
         }
     }
 
     private static Object parseOption(List<String> arguments, Parameter parameter) {
-        return PARSERS.get(parameter.getType()).parse(arguments, "-" + parameter.getAnnotation(Option.class).value());
+        if (!parameter.isAnnotationPresent(Option.class)) {
+            throw new IllegalOptionException(parameter.getName());
+        }
+        return PARSERS.get(parameter.getType()).parse(arguments, parameter.getAnnotation(Option.class));
     }
 
     private static Map<Class<?>, OptionParser> PARSERS = Map.of(
             boolean.class, new BooleanOptionParser(),
-            int.class, new SingleValueOptionParser<>(Integer::parseInt),
-            String.class, new SingleValueOptionParser(String::valueOf));
+            int.class, new SingleValueOptionParser<>(0, Integer::parseInt),
+            String.class, new SingleValueOptionParser<>("", String::valueOf));
 
 }
