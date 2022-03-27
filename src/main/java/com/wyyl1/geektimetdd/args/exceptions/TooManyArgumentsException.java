@@ -1,14 +1,14 @@
-package com.wyyl1.geektimetdd.args;
+package com.wyyl1.geektimetdd.args.exceptions;
 
 /**
  * @author aoe
  * @date 2022/3/23
  */
-public class InsufficientArgumentsException extends RuntimeException {
+public class TooManyArgumentsException extends RuntimeException {
 
     private final String option;
 
-    public InsufficientArgumentsException(String option) {
+    public TooManyArgumentsException(String option) {
         super(option);
         this.option = option;
     }

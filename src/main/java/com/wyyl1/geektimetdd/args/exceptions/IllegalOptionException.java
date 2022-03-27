@@ -1,4 +1,4 @@
-package com.wyyl1.geektimetdd.args;
+package com.wyyl1.geektimetdd.args.exceptions;
 
 /**
  * @author aoe
